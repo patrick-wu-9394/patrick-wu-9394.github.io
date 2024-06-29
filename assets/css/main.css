@@ -2642,3 +2642,36 @@ input, select, textarea {
 				}
 
 	}
+
+	/* The actual timeline (the vertical ruler) */
+	.timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .timeline:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background-color: #333;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 20px;
+      margin-bottom: 50px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+
