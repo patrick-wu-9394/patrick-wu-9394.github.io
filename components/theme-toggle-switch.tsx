@@ -17,7 +17,7 @@ export default function ThemeToggleSwitch() {
       setIsDark(false);
       setTheme("light");
     }
-  }, []);
+  }, [setTheme]);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
