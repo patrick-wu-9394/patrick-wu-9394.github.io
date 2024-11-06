@@ -2,7 +2,7 @@
   "about": "About Me",
   "experience": [
     {
-      "company": "Raytheon",
+      "company": "Raytheon (RTX)",
       "title": "Software Engineer 2",
       "date": "May 2018 - Aug 2021",
       "description": "Raytheon Job Description"
@@ -23,11 +23,13 @@
   "education": [
     {
       "school": "Georgia Institute of Technology",
-      "degree": "B.S. Electrical Engineering"
+      "degree": "B.S. Electrical Engineering",
+      "description": "Undergrad description"
     },
     {
       "school": "GT OMSCS",
-      "degree": "M.S. Computer Science"
+      "degree": "M.S. Computer Science",
+      "description": "Postgrad description"
     }
   ]
 }
