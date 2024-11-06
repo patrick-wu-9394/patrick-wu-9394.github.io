@@ -1,0 +1,35 @@
+{
+  "about": "About Me",
+  "experience": [
+    {
+      "company": "Raytheon (RTX)",
+      "title": "Software Engineer 2",
+      "date": "May 2018 - Aug 2021",
+      "description": "Raytheon Job Description"
+    },
+    {
+      "company": "Spartan Radar",
+      "title": "Sr. Software Engineer",
+      "date": "Sep 2021 - Oct 2024",
+      "description": "Spartan Radar Job Description"
+    },
+    {
+      "company": "Apollo Global Management",
+      "title": "Sr. Software Engineer",
+      "date": "Oct 2024 - Present",
+      "description": "Apollo Global Management Job Description"
+    }
+  ],
+  "education": [
+    {
+      "school": "Georgia Institute of Technology",
+      "degree": "B.S. Electrical Engineering",
+      "description": "Undergrad description"
+    },
+    {
+      "school": "GT OMSCS",
+      "degree": "M.S. Computer Science",
+      "description": "Postgrad description"
+    }
+  ]
+}
