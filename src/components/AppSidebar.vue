@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { BookUser, Briefcase, Home, Info, ToolCase } from 'lucide-vue-next'
 
+import DarkModeToggle from '@/components/DarkModeToggle.vue'
 import {
   Sidebar,
   SidebarContent,
@@ -58,6 +59,11 @@ const items = [
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
+        </SidebarGroupContent>
+        <SidebarGroupLabel>Settings</SidebarGroupLabel>
+        <SidebarGroupContent>
+          <!-- Settings content can go here -->
+          <DarkModeToggle />
         </SidebarGroupContent>
       </SidebarGroup>
     </SidebarContent>
