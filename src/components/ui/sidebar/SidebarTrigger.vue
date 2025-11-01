@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PanelLeft } from 'lucide-vue-next'
+import { ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-vue-next'
 
 import type { HTMLAttributes } from 'vue'
 
@@ -13,7 +13,7 @@ const props = defineProps<{
   class?: HTMLAttributes['class']
 }>()
 
-const { toggleSidebar } = useSidebar()
+const { toggleSidebar, open } = useSidebar()
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const { toggleSidebar } = useSidebar()
     :class="cn('h-7 w-7', props.class)"
     @click="toggleSidebar"
   >
-    <PanelLeft />
+    <component :is="open ? ChevronsLeftIcon : ChevronsRightIcon" class="h-4 w-4" />
     <span class="sr-only">Toggle Sidebar</span>
   </Button>
 </template>

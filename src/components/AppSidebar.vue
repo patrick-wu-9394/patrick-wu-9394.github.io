@@ -8,9 +8,11 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
+  SidebarTrigger
 } from '@/components/ui/sidebar'
 
 // Menu items.
@@ -44,8 +46,11 @@ const items = [
 </script>
 
 <template>
-  <Sidebar>
+  <Sidebar variant="sidebar" collapsible="icon">
     <SidebarContent>
+      <SidebarHeader>
+        <SidebarTrigger />
+      </SidebarHeader>
       <SidebarGroup>
         <SidebarGroupLabel>Application</SidebarGroupLabel>
         <SidebarGroupContent>
