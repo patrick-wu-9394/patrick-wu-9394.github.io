@@ -65,10 +65,12 @@ const items = [
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroupContent>
+      </SidebarGroup>
+      <SidebarGroup>
         <SidebarGroupLabel>Settings</SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu>
-              <DarkModeToggle />
+            <DarkModeToggle />
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>
