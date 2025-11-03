@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - vuejs-starter
   workflow_dispatch:
 
 permissions:
