@@ -3,13 +3,18 @@
   "semi": false,
   "singleQuote": true,
   "printWidth": 100,
-  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
   "trailingComma": "none",
   "tabWidth": 2,
   "useTabs": false,
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "endOfLine": "lf",
+
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+
   "importOrder": [
     "^vue$",
     "^vue-router$",
@@ -23,6 +28,7 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+
   "overrides": [
     {
       "files": "*.json",
