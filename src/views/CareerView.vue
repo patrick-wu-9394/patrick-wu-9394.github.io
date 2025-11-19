@@ -13,6 +13,8 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel'
 
+import { careerList } from '@/data/careers'
+
 const api = ref<CarouselApi>()
 const totalCount = ref(0)
 const current = ref(0)
@@ -38,11 +40,19 @@ watchOnce(api, api => {
       :opts="{ loop: true }"
     >
       <CarouselContent>
-        <CarouselItem v-for="(_, index) in 5" :key="index">
+        <CarouselItem v-for="(career, index) in careerList" :key="career.id || index">
           <div class="p-1">
             <Card>
               <CardContent class="flex aspect-square items-center justify-center p-6">
-                <span class="text-4xl font-semibold">{{ index + 1 }}</span>
+                <div class="text-center">
+                  <div class="text-2xl font-semibold text-emerald-600 dark:text-emerald-400">
+                    {{ career.company }}
+                  </div>
+                  <div class="text-muted-foreground text-lg">
+                    {{ career.title }} — {{ career.years }} {{ career.years === 1 ? 'yr' : 'yrs' }}
+                  </div>
+                  <p class="mt-2 text-sm" v-if="career.description">{{ career.description }}</p>
+                </div>
               </CardContent>
             </Card>
           </div>
