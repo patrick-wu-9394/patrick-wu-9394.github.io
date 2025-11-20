@@ -7,6 +7,50 @@
     <title>Vite App</title>
   </head>
   <body>
+    <!-- Apply persisted/system theme synchronously to avoid flash -->
+    <script>
+      (function () {
+        try {
+          // Check common storage keys used by color mode libraries (vueuse etc.)
+          const keys = ['vueuse-color-scheme', 'color-mode', 'theme']
+          let stored = null
+          for (const k of keys) {
+            const v = localStorage.getItem(k)
+            if (v) {
+              stored = v
+              break
+            }
+          }
+
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark')
+          } else if (stored === 'light') {
+            document.documentElement.classList.remove('dark')
+          } else {
+            // No stored preference — follow system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark')
+            } else {
+              document.documentElement.classList.remove('dark')
+            }
+          }
+        } catch (e) {
+          // fail silently
+        }
+      })();
+    </script>
+
+    <!-- Minimal background colors to prevent white flash before full CSS loads -->
+    <style>
+      /* Light default */
+      :root { background-color: #ffffff; }
+      /* Dark default — tweak to match your theme's background */
+      .dark { background-color: #000000; }
+      /* Ensure body inherits document background immediately */
+      html, body { height: 100%; }
+      body { margin: 0; background: transparent; }
+    </style>
+
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
