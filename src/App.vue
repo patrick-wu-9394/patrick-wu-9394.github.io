@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppSidebar from '@/components/AppSidebar.vue'
 import { SidebarProvider } from '@/components/ui/sidebar'
+import FlickeringGridBackground from '@/components/FlickeringGridBackground.vue'
 </script>
 
 <template>
@@ -12,7 +13,9 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 
       <!-- Main content flexes to fill remaining space -->
       <main class="flex-1 overflow-y-auto">
-        <RouterView />
+        <FlickeringGridBackground>
+          <RouterView />
+        </FlickeringGridBackground>
       </main>
     </div>
   </SidebarProvider>
