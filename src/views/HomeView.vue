@@ -8,18 +8,18 @@
 
       <!-- Intro / Profession -->
       <h2 class="text-xl font-medium text-gray-700 dark:text-gray-300">
-        I'm a <span class="font-semibold text-emerald-600 dark:text-emerald-400">Software</span> and
-        <span class="font-semibold text-emerald-600 dark:text-emerald-400">DevOps</span> Engineer.
+        I'm a <span class="font-semibold text-emerald-700 dark:text-emerald-400">Software</span> and
+        <span class="font-semibold text-emerald-700 dark:text-emerald-400">DevOps</span> Engineer.
       </h2>
 
       <!-- Description -->
-      <p class="text-base leading-relaxed text-gray-600 dark:text-gray-400">
+      <p class="text-base leading-relaxed text-gray-800 dark:text-gray-400">
         This is my work-in-progress resume page built on
-        <span class="font-medium text-emerald-600 dark:text-emerald-400">Vue&nbsp;3</span>,
-        <span class="font-medium text-emerald-600 dark:text-emerald-400">Tailwind&nbsp;CSS</span>,
-        and <span class="font-medium text-emerald-600 dark:text-emerald-400">shadcn-vue</span>, and
+        <span class="font-medium text-emerald-700 dark:text-emerald-400">Vue&nbsp;3</span>,
+        <span class="font-medium text-emerald-700 dark:text-emerald-400">Tailwind&nbsp;CSS</span>,
+        and <span class="font-medium text-emerald-700 dark:text-emerald-400">shadcn-vue</span>, and
         deployed on
-        <span class="font-medium text-emerald-600 dark:text-emerald-400">GitHub&nbsp;Pages</span>.
+        <span class="font-medium text-emerald-700 dark:text-emerald-400">GitHub&nbsp;Pages</span>.
       </p>
     </div>
   </div>

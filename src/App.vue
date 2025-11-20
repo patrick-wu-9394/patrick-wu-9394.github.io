@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppSidebar from '@/components/AppSidebar.vue'
-import { SidebarProvider } from '@/components/ui/sidebar'
 import FlickeringGridBackground from '@/components/FlickeringGridBackground.vue'
+import { SidebarProvider } from '@/components/ui/sidebar'
 </script>
 
 <template>
