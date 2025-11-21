@@ -157,16 +157,33 @@ onMounted(() => {
   resizeObserver = new ResizeObserver(() => {
     updateCanvasSize()
   })
+  // Use a safe callback (entries[0] may be undefined) and start/stop RAF appropriately
   intersectionObserver = new IntersectionObserver(
-    ([entry]) => {
+    (entries) => {
+      const entry = entries[0]
+      if (!entry) return
+
       isInView.value = entry.isIntersecting
-      animationFrameId = requestAnimationFrame(animate)
+
+      if (isInView.value) {
+        // Initialize timing to avoid a huge first delta and kick off the loop
+        lastTime = performance.now()
+        if (!animationFrameId) {
+          animationFrameId = requestAnimationFrame(animate)
+        }
+      } else {
+        // Stop animation when out of view
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId)
+          animationFrameId = undefined
+        }
+      }
     },
     { threshold: 0 }
   )
 
-  resizeObserver.observe(containerRef.value)
-  intersectionObserver.observe(canvasRef.value)
+  if (containerRef.value) resizeObserver.observe(containerRef.value)
+  if (canvasRef.value) intersectionObserver.observe(canvasRef.value)
 })
 
 onBeforeUnmount(() => {

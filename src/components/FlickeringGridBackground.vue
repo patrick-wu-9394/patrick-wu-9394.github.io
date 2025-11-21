@@ -23,7 +23,7 @@ const gridColor = computed(() => {
       :grid-gap="8"
       :color="gridColor"
       :max-opacity="0.125"
-      :flicker-chance="0.1"
+      :flicker-chance="0.15"
     />
 
     <!-- 3. Your foreground content wrapper (relative positioning, appears above the grid) -->
