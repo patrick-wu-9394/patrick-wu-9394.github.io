@@ -51,7 +51,7 @@ watchOnce(api, api => {
                   <div class="text-muted-foreground text-lg">
                     {{ career.title }} — {{ career.years }} {{ career.years === 1 ? 'yr' : 'yrs' }}
                   </div>
-                  <p class="mt-2 text-sm" v-if="career.description">{{ career.description }}</p>
+                  <!-- <p class="mt-2 text-sm" v-if="career.description">{{ career.description }}</p> -->
                 </div>
               </CardContent>
             </Card>
