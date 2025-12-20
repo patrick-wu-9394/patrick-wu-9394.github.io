@@ -9,14 +9,23 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: { label: 'Home' }
     },
     {
       path: '/career',
       name: 'career',
-      component: CareerView
+      component: CareerView,
+      meta: { label: 'Career' }
     }
   ]
+})
+
+// Update document title based on route
+router.afterEach((to) => {
+  const baseTitle = 'patrick-wu-9394.github.io'
+  const routeLabel = to.meta.label as string | undefined
+  document.title = routeLabel ? `${baseTitle} | ${routeLabel}` : baseTitle
 })
 
 export default router
