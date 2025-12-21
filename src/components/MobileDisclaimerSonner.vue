@@ -6,14 +6,12 @@ import { onMounted } from 'vue'
 
 const { isMobile } = useMobileDetection()
 
-// Show once per session to avoid repeated popups
 onMounted(() => {
   try {
-    if (isMobile?.value && !sessionStorage.getItem('mobileDisclaimerShown')) {
+    if (isMobile()) {
       toast.warning(
         'Mobile support is not fully integrated. Please view this app on desktop or tablet.'
       )
-      sessionStorage.setItem('mobileDisclaimerShown', '1')
     }
   } catch {
     // silently ignore sessionStorage errors
