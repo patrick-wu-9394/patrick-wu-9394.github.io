@@ -60,7 +60,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
     <div
       :class="
         cn(
-          'fixed inset-y-0 z-10 h-svh transition-[width] duration-200 ease-linear flex',
+          'fixed inset-y-0 z-10 flex h-svh transition-[width] duration-200 ease-linear',
           side === 'left' ? 'left-0' : 'right-0',
           props.class
         )
