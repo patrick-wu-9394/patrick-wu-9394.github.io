@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { useMobileDetection } from 'vue3-mobile-detection'
+import { useMediaQuery } from '@vueuse/core'
 import { toast } from 'vue-sonner'
 
 import { onMounted } from 'vue'
 
-const { isMobile } = useMobileDetection()
+const isMobile = useMediaQuery('(max-width: 768px)')
 
 onMounted(() => {
   try {
-    if (isMobile()) {
+    if (isMobile.value) {
       toast.warning(
         'Mobile support is not fully integrated. Please view this app on desktop or tablet.'
       )
     }
   } catch {
-    // silently ignore sessionStorage errors
+    // silently ignore errors
   }
 })
 </script>
