@@ -3,8 +3,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import SidebarProvider from '../SidebarProvider.vue'
 
+interface MediaQueryListMock extends MediaQueryList {
+  addListener: ReturnType<typeof vi.fn>
+  removeListener: ReturnType<typeof vi.fn>
+}
+
 describe('SidebarProvider Component', () => {
-  let mockMediaQueryList: any
+  let mockMediaQueryList: MediaQueryListMock
 
   beforeEach(() => {
     // Mock window.matchMedia for responsive behavior
@@ -265,9 +270,8 @@ describe('SidebarProvider Component', () => {
       })
 
       // The event listener should prevent default behavior
-      let preventDefaultCalled = false
       const preventDefaultHandler = () => {
-        preventDefaultCalled = true
+        // Handler for preventDefault spy
       }
       vi.spyOn(event, 'preventDefault').mockImplementation(preventDefaultHandler)
 

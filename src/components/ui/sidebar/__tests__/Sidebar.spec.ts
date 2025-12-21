@@ -5,8 +5,13 @@ import Sidebar from '../Sidebar.vue'
 import SidebarProvider from '../SidebarProvider.vue'
 import { SIDEBAR_WIDTH_ICON, SIDEBAR_WIDTH_MOBILE } from '../utils'
 
+interface MediaQueryListMock extends MediaQueryList {
+  addListener: ReturnType<typeof vi.fn>
+  removeListener: ReturnType<typeof vi.fn>
+}
+
 describe('Sidebar Component', () => {
-  let mockMediaQueryList: any
+  let mockMediaQueryList: MediaQueryListMock
 
   beforeEach(() => {
     // Mock window.matchMedia for responsive behavior
