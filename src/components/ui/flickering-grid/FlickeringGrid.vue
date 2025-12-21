@@ -159,7 +159,7 @@ onMounted(() => {
   })
   // Use a safe callback (entries[0] may be undefined) and start/stop RAF appropriately
   intersectionObserver = new IntersectionObserver(
-    (entries) => {
+    entries => {
       const entry = entries[0]
       if (!entry) return
 

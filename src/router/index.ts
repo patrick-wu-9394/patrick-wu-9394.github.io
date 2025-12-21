@@ -22,7 +22,7 @@ const router = createRouter({
 })
 
 // Update document title based on route
-router.afterEach((to) => {
+router.afterEach(to => {
   const baseTitle = 'patrick-wu-9394.github.io'
   const routeLabel = to.meta.label as string | undefined
   document.title = routeLabel ? `${baseTitle} | ${routeLabel}` : baseTitle

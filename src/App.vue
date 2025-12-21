@@ -2,8 +2,9 @@
 import AppSidebar from '@/components/AppSidebar.vue'
 import FlickeringGridBackground from '@/components/FlickeringGridBackground.vue'
 import { SidebarProvider } from '@/components/ui/sidebar'
-import MobileDisclaimerSonner from './components/MobileDisclaimerSonner.vue';
-import Sonner from './components/ui/sonner/Sonner.vue';
+
+import MobileDisclaimerSonner from './components/MobileDisclaimerSonner.vue'
+import Sonner from './components/ui/sonner/Sonner.vue'
 </script>
 
 <template>

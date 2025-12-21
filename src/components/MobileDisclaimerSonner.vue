@@ -1,21 +1,25 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useMobileDetection } from 'vue3-mobile-detection';
-import { toast } from 'vue-sonner';
+import { useMobileDetection } from 'vue3-mobile-detection'
+import { toast } from 'vue-sonner'
 
-const { isMobile } = useMobileDetection();
+import { onMounted } from 'vue'
+
+const { isMobile } = useMobileDetection()
 
 // Show once per session to avoid repeated popups
 onMounted(() => {
   try {
     if (isMobile?.value && !sessionStorage.getItem('mobileDisclaimerShown')) {
-      toast.warning('Mobile support is not fully integrated. Please view this app on desktop or tablet.');
-      sessionStorage.setItem('mobileDisclaimerShown', '1');
+      toast.warning(
+        'Mobile support is not fully integrated. Please view this app on desktop or tablet.'
+      )
+      sessionStorage.setItem('mobileDisclaimerShown', '1')
     }
-  } catch (e) {
-    // silently ignore sessionStorage errors in restricted environments
+  } catch {
+    // eslint-disable-next-line no-empty -- sessionStorage may be unavailable in restricted environments
+    // silently ignore sessionStorage errors
   }
-});
+})
 </script>
 
 <template>
