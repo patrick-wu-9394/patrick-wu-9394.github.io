@@ -16,7 +16,6 @@ onMounted(() => {
       sessionStorage.setItem('mobileDisclaimerShown', '1')
     }
   } catch {
-    // eslint-disable-next-line no-empty -- sessionStorage may be unavailable in restricted environments
     // silently ignore sessionStorage errors
   }
 })
