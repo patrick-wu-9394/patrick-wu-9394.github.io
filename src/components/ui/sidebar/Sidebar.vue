@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { Sheet, SheetContent } from '@/components/ui/sheet'
-import SheetDescription from '@/components/ui/sheet/SheetDescription.vue'
-import SheetHeader from '@/components/ui/sheet/SheetHeader.vue'
-import SheetTitle from '@/components/ui/sheet/SheetTitle.vue'
-
 import { cn } from '@/lib/utils'
 
 import type { SidebarProps } from '.'
-import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
+import { SIDEBAR_WIDTH_ICON, SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
 
 defineOptions({
   inheritAttrs: false
@@ -34,27 +29,65 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
     <slot />
   </div>
 
-  <Sheet v-else-if="isMobile" :open="openMobile" v-bind="$attrs" @update:open="setOpenMobile">
-    <SheetContent
-      data-sidebar="sidebar"
-      data-slot="sidebar"
-      data-mobile="true"
-      :side="side"
-      class="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
+  <!-- Mobile sidebar (always visible, can be toggled closed) -->
+  <div
+    v-if="isMobile"
+    class="group peer text-sidebar-foreground block md:hidden"
+    data-slot="sidebar"
+    data-mobile="true"
+    :data-state="openMobile ? 'expanded' : 'collapsed'"
+    :data-collapsible="openMobile ? '' : 'icon'"
+    :data-variant="variant"
+    :data-side="side"
+  >
+    <!-- Mobile sidebar gap/placeholder -->
+    <div
+      :class="
+        cn(
+          'relative bg-transparent transition-[width] duration-200 ease-linear',
+          variant === 'floating' || variant === 'inset'
+            ? 'group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]'
+            : 'group-data-[collapsible=icon]:w-(--sidebar-width-icon)'
+        )
+      "
       :style="{
-        '--sidebar-width': SIDEBAR_WIDTH_MOBILE
+        '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
+        '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
+        width: openMobile ? SIDEBAR_WIDTH_MOBILE : SIDEBAR_WIDTH_ICON
       }"
+    />
+    <!-- Mobile sidebar container -->
+    <div
+      :class="
+        cn(
+          'fixed inset-y-0 z-10 flex h-svh transition-[width] duration-200 ease-linear',
+          side === 'left' ? 'left-0' : 'right-0',
+          props.class
+        )
+      "
+      :style="{
+        '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
+        '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
+        width: openMobile ? SIDEBAR_WIDTH_MOBILE : SIDEBAR_WIDTH_ICON
+      }"
+      v-bind="$attrs"
     >
-      <SheetHeader class="sr-only">
-        <SheetTitle>Sidebar</SheetTitle>
-        <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-      </SheetHeader>
-      <div class="flex h-full w-full flex-col">
+      <div
+        data-sidebar="sidebar"
+        class="bg-sidebar text-sidebar-foreground flex h-full w-full flex-col"
+      >
         <slot />
       </div>
-    </SheetContent>
-  </Sheet>
+      <!-- Mobile overlay backdrop when sidebar is open -->
+      <div
+        v-if="openMobile"
+        class="fixed inset-0 z-[-1] bg-black/50"
+        @click="setOpenMobile(false)"
+      />
+    </div>
+  </div>
 
+  <!-- Desktop sidebar -->
   <div
     v-else
     class="group peer text-sidebar-foreground hidden md:block"
