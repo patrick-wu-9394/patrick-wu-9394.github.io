@@ -9,8 +9,8 @@ describe('MobileDisclaimerSonner', () => {
 
   it('shows warning on mobile', async () => {
     const warningMock = vi.fn()
-    vi.doMock('vue3-mobile-detection', () => ({
-      useMobileDetection: () => ({ isMobile: () => true })
+    vi.doMock('@vueuse/core', () => ({
+      useMediaQuery: () => ({ value: true })
     }))
     vi.doMock('vue-sonner', () => ({ toast: { warning: warningMock } }))
     const { default: MobileDisclaimerSonner } = await import('../MobileDisclaimerSonner.vue')
@@ -22,8 +22,8 @@ describe('MobileDisclaimerSonner', () => {
 
   it('does not show warning on desktop or tablet', async () => {
     const warningMock = vi.fn()
-    vi.doMock('vue3-mobile-detection', () => ({
-      useMobileDetection: () => ({ isMobile: () => false })
+    vi.doMock('@vueuse/core', () => ({
+      useMediaQuery: () => ({ value: false })
     }))
     vi.doMock('vue-sonner', () => ({ toast: { warning: warningMock } }))
     const { default: MobileDisclaimerSonner } = await import('../MobileDisclaimerSonner.vue')
