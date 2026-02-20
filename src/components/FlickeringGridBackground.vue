@@ -14,8 +14,8 @@ const gridColor = computed(() => {
 </script>
 
 <template>
-  <!-- 1. The main parent container (relative positioning, ensures at least viewport height) -->
-  <div class="relative min-h-screen w-full overflow-hidden">
+  <!-- 1. The main parent container (relative positioning, full height when h-full is passed) -->
+  <div class="relative w-full overflow-hidden" :class="$attrs.class">
     <!-- 2. The FlickeringGrid component (absolute positioned background) -->
     <FlickeringGrid
       class="pointer-events-none absolute inset-0 z-0"
@@ -27,7 +27,7 @@ const gridColor = computed(() => {
     />
 
     <!-- 3. Your foreground content wrapper (relative positioning, appears above the grid) -->
-    <div class="relative z-10 flex min-h-screen w-full items-center justify-center p-8">
+    <div class="relative z-10 flex h-full w-full items-center justify-center p-8">
       <slot />
     </div>
   </div>
