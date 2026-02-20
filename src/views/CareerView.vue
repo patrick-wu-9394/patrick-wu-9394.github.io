@@ -32,9 +32,9 @@ watchOnce(api, api => {
 </script>
 
 <template>
-  <div class="flex min-h-full w-full flex-col items-center justify-center px-4">
+  <div class="flex h-full w-full flex-col items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
     <Carousel
-      class="relative w-full max-w-md"
+      class="relative w-full max-w-lg sm:max-w-md"
       v-slot="{ canScrollNext }"
       @init-api="setApi"
       :opts="{ loop: true }"
@@ -42,13 +42,13 @@ watchOnce(api, api => {
       <CarouselContent>
         <CarouselItem v-for="(career, index) in careerList" :key="career.id || index">
           <div class="p-1">
-            <Card>
-              <CardContent class="flex aspect-square items-center justify-center p-6">
+            <Card class="border-2">
+              <CardContent class="flex aspect-square items-center justify-center p-4 sm:p-6">
                 <div class="text-center">
-                  <div class="text-2xl font-semibold text-emerald-600 dark:text-emerald-400">
+                  <div class="text-xl font-bold sm:text-2xl text-emerald-600 dark:text-emerald-400">
                     {{ career.company }}
                   </div>
-                  <div class="text-muted-foreground text-lg">
+                  <div class="mt-2 text-base sm:text-lg text-muted-foreground font-medium">
                     {{ career.title }} — {{ career.years }} {{ career.years === 1 ? 'yr' : 'yrs' }}
                   </div>
                   <!-- <p class="mt-2 text-sm" v-if="career.description">{{ career.description }}</p> -->
@@ -61,7 +61,7 @@ watchOnce(api, api => {
       <CarouselPrevious />
       <CarouselNext v-if="canScrollNext" />
     </Carousel>
-    <div class="text-muted-foreground mt-4 py-2 text-center text-sm">
+    <div class="mt-4 py-2 text-center text-sm sm:text-base text-muted-foreground font-medium">
       Career {{ current }} of {{ totalCount }}
     </div>
   </div>

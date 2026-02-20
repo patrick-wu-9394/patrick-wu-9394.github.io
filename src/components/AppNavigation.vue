@@ -48,7 +48,7 @@ const items = [
 
 <template>
   <nav class="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <div class="flex h-14 max-w-screen-2xl items-center justify-center gap-4 px-4">
+    <div class="flex h-14 max-w-screen-2xl items-center justify-center gap-2 px-4 sm:gap-4">
       <!-- Desktop Navigation Menu -->
       <NavigationMenu class="hidden md:flex">
         <NavigationMenuList>
@@ -57,7 +57,7 @@ const items = [
             :key="item.title"
             :href="item.url"
             :class="navigationMenuTriggerStyle()"
-            class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+            class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <component :is="item.icon" class="mr-2 h-4 w-4" />
             <span>{{ item.title }}</span>
@@ -66,14 +66,15 @@ const items = [
       </NavigationMenu>
 
       <!-- Mobile Menu Button & Theme Toggle -->
-      <div class="absolute right-4 flex items-center gap-2">
+      <div class="absolute right-4 flex items-center gap-1 sm:gap-2">
         <!-- Mobile Menu Button -->
         <Button
           variant="ghost"
           size="icon"
           class="md:hidden"
           @click="mobileMenuOpen = !mobileMenuOpen"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded="mobileMenuOpen"
         >
           <Menu v-if="!mobileMenuOpen" class="h-5 w-5" />
           <X v-else class="h-5 w-5" />
@@ -83,23 +84,24 @@ const items = [
         <Button
           variant="ghost"
           size="icon"
-          aria-label="Toggle theme"
+          aria-label="Toggle dark mode"
           @click="toggleColorMode"
         >
           <Sun v-if="colorMode === 'light'" class="h-4 w-4" />
           <Moon v-else class="h-4 w-4" />
+          <span class="sr-only">{{ colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode' }}</span>
         </Button>
       </div>
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div v-if="mobileMenuOpen" class="border-t border-border/40 md:hidden">
-      <div class="flex flex-col items-center gap-1 px-4 py-2">
+    <div v-if="mobileMenuOpen" class="border-t border-border/40 bg-background/50 md:hidden">
+      <div class="flex flex-col items-center gap-1 px-4 py-3 sm:px-6">
         <a
           v-for="item in items"
           :key="item.title"
           :href="item.url"
-          class="flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+          class="w-full flex items-center justify-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           @click="mobileMenuOpen = false"
         >
           <component :is="item.icon" class="mr-2 h-4 w-4" />
