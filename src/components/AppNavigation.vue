@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { useColorMode } from '@vueuse/core'
 import { BookUser, Briefcase, Home, Info, Menu, Moon, Sun, ToolCase, X } from 'lucide-vue-next'
+
 import { ref } from 'vue'
 
+import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuList,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu'
-import { Button } from '@/components/ui/button'
 
 const colorMode = useColorMode({ disableTransition: false })
 const mobileMenuOpen = ref(false)
@@ -47,7 +48,9 @@ const items = [
 </script>
 
 <template>
-  <nav class="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <nav
+    class="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 border-b backdrop-blur"
+  >
     <div class="flex h-14 max-w-screen-2xl items-center justify-center gap-2 px-4 sm:gap-4">
       <!-- Desktop Navigation Menu -->
       <NavigationMenu class="hidden md:flex">
@@ -57,7 +60,7 @@ const items = [
             :key="item.title"
             :href="item.url"
             :class="navigationMenuTriggerStyle()"
-            class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            class="group bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring inline-flex h-10 w-max items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             <component :is="item.icon" class="mr-2 h-4 w-4" />
             <span>{{ item.title }}</span>
@@ -81,27 +84,24 @@ const items = [
         </Button>
 
         <!-- Theme Toggle -->
-        <Button
-          variant="ghost"
-          size="icon"
-          aria-label="Toggle dark mode"
-          @click="toggleColorMode"
-        >
+        <Button variant="ghost" size="icon" aria-label="Toggle dark mode" @click="toggleColorMode">
           <Sun v-if="colorMode === 'light'" class="h-4 w-4" />
           <Moon v-else class="h-4 w-4" />
-          <span class="sr-only">{{ colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode' }}</span>
+          <span class="sr-only">{{
+            colorMode === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
+          }}</span>
         </Button>
       </div>
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div v-if="mobileMenuOpen" class="border-t border-border/40 bg-background/50 md:hidden">
+    <div v-if="mobileMenuOpen" class="border-border/40 bg-background/50 border-t md:hidden">
       <div class="flex flex-col items-center gap-1 px-4 py-3 sm:px-6">
         <a
           v-for="item in items"
           :key="item.title"
           :href="item.url"
-          class="w-full flex items-center justify-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          class="hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring flex w-full items-center justify-center rounded-md px-3 py-2.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
           @click="mobileMenuOpen = false"
         >
           <component :is="item.icon" class="mr-2 h-4 w-4" />

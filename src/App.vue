@@ -7,7 +7,7 @@ import MobileDisclaimerSonner from './components/MobileDisclaimerSonner.vue'
 </script>
 
 <template>
-  <div class="h-screen flex flex-col">
+  <div class="flex h-screen flex-col">
     <!-- Navigation Header -->
     <AppNavigation />
 

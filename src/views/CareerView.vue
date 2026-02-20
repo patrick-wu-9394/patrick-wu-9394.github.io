@@ -45,10 +45,10 @@ watchOnce(api, api => {
             <Card class="border-2">
               <CardContent class="flex aspect-square items-center justify-center p-4 sm:p-6">
                 <div class="text-center">
-                  <div class="text-xl font-bold sm:text-2xl text-emerald-600 dark:text-emerald-400">
+                  <div class="text-xl font-bold text-emerald-600 sm:text-2xl dark:text-emerald-400">
                     {{ career.company }}
                   </div>
-                  <div class="mt-2 text-base sm:text-lg text-muted-foreground font-medium">
+                  <div class="text-muted-foreground mt-2 text-base font-medium sm:text-lg">
                     {{ career.title }} — {{ career.years }} {{ career.years === 1 ? 'yr' : 'yrs' }}
                   </div>
                   <!-- <p class="mt-2 text-sm" v-if="career.description">{{ career.description }}</p> -->
@@ -61,7 +61,7 @@ watchOnce(api, api => {
       <CarouselPrevious />
       <CarouselNext v-if="canScrollNext" />
     </Carousel>
-    <div class="mt-4 py-2 text-center text-sm sm:text-base text-muted-foreground font-medium">
+    <div class="text-muted-foreground mt-4 py-2 text-center text-sm font-medium sm:text-base">
       Career {{ current }} of {{ totalCount }}
     </div>
   </div>
