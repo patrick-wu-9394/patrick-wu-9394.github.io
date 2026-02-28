@@ -43,7 +43,7 @@ watchOnce(api, api => {
         <CarouselItem v-for="(career, index) in careerList" :key="career.id || index">
           <div class="p-1">
             <Card class="border-2">
-              <CardContent class="p-4 sm:p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
+              <CardContent class="max-h-[calc(100vh-200px)] overflow-y-auto p-4 sm:p-6">
                 <!-- Company and Title -->
                 <div class="text-center">
                   <div class="text-xl font-bold text-emerald-600 sm:text-2xl dark:text-emerald-400">

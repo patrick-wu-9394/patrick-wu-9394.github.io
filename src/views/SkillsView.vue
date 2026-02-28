@@ -17,7 +17,9 @@ import { skillCategories } from '@/data/skills'
       </div>
 
       <!-- Skills Grid -->
-      <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:[&>:last-child:nth-child(odd)]:col-span-full lg:[&>:last-child:nth-child(odd)]:w-1/2 lg:[&>:last-child:nth-child(odd)]:mx-auto">
+      <div
+        class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:[&>:last-child:nth-child(odd)]:col-span-full lg:[&>:last-child:nth-child(odd)]:mx-auto lg:[&>:last-child:nth-child(odd)]:w-1/2"
+      >
         <div v-for="category in skillCategories" :key="category.id" class="space-y-3">
           <Card class="h-full border-2">
             <CardHeader class="pb-3">
@@ -36,9 +38,6 @@ import { skillCategories } from '@/data/skills'
                   class="bg-emerald-100 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-300"
                 >
                   {{ skill.name }}
-                  <span v-if="skill.proficiency" class="ml-1 opacity-70" :title="skill.proficiency">
-                    •
-                  </span>
                 </Badge>
               </div>
             </CardContent>

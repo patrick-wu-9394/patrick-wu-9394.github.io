@@ -108,7 +108,8 @@ export const careerList: Career[] = [
     company: 'Georgia Tech Research Institute',
     title: 'Electrical Engineer Co-op',
     years: 1,
-    description: 'Completed three-rotation co-op gaining embedded software development experience while pursuing Bachelor\'s degree.',
+    description:
+      "Completed three-rotation co-op gaining embedded software development experience while pursuing Bachelor's degree.",
     achievements: [
       {
         title: 'USB & Sensor Drivers',
