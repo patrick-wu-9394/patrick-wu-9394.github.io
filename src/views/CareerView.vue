@@ -32,7 +32,7 @@ watchOnce(api, api => {
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+  <div class="flex h-full w-full flex-col items-center justify-center px-4 py-4 sm:px-6 lg:px-8">
     <Carousel
       class="relative w-full max-w-2xl sm:max-w-3xl"
       v-slot="{ canScrollNext }"
@@ -43,7 +43,7 @@ watchOnce(api, api => {
         <CarouselItem v-for="(career, index) in careerList" :key="career.id || index">
           <div class="p-1">
             <Card class="border-2">
-              <CardContent class="p-4 sm:p-6">
+              <CardContent class="p-4 sm:p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
                 <!-- Company and Title -->
                 <div class="text-center">
                   <div class="text-xl font-bold text-emerald-600 sm:text-2xl dark:text-emerald-400">

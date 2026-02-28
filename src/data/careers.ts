@@ -44,27 +44,32 @@ export const careerList: Career[] = [
     title: 'Sr. Software Engineer',
     years: 3,
     description:
-      'Built and maintained core platform systems for defense technology, focusing on scalability and reliability.',
+      'Developed advanced radar perception software and infrastructure, leading cross-platform applications and CI/CD initiatives.',
     achievements: [
       {
-        title: 'Kubernetes Cluster Management',
+        title: 'Python & Flutter Applications',
         description:
-          'Designed and operated production Kubernetes clusters supporting 50+ microservices'
+          'Built HITL Python/Qt desktop tool and cross-platform Flutter mobile app with real-time radar data streaming and protocol interfaces'
       },
       {
-        title: 'Microservices Architecture',
+        title: 'Testing & QA Infrastructure',
         description:
-          'Architected distributed microservices platform using Python and Go, reducing deployment time by 60%'
+          'Implemented WebDriverIO automation framework and Python/Qt regression testing platform with automated reporting'
       },
       {
-        title: 'Observability Platform',
+        title: 'CES 2023 Kubernetes Showcase',
         description:
-          'Implemented comprehensive monitoring and logging stack using Prometheus, Grafana, and ELK'
+          'Led Wipro collaboration demonstrating radar perception software in Docker/Kubernetes, resulting in $2M fundraising investment'
       },
       {
-        title: 'Team Leadership',
+        title: 'C++ Platform Modernization',
         description:
-          'Mentored team of 5+ engineers on DevOps best practices and platform engineering principles'
+          'Converted Python codebase to C++, integrated ROS framework and Foxglove visualization for improved performance'
+      },
+      {
+        title: 'CI/CD Automation',
+        description:
+          'Implemented company-wide GitHub Actions pipelines automating linting, versioning, builds, and releases'
       }
     ]
   },
@@ -74,51 +79,51 @@ export const careerList: Career[] = [
     title: 'Software Engineer 2',
     years: 3,
     description:
-      'Contributed to mission-critical systems with focus on automation, testing, and infrastructure reliability.',
+      'Contributed to mission-critical radar systems with focus on code quality, testing, and infrastructure optimization.',
     achievements: [
       {
-        title: 'Automation Framework Development',
+        title: 'BDD Testing Framework',
         description:
-          'Developed Python-based automation framework for infrastructure provisioning, reducing manual tasks by 70%'
+          'Created Cucumber-based Behavior Driven Development framework to automate requirements verification for C++ radar stack'
       },
       {
-        title: 'Container Orchestration',
+        title: 'Code Optimization & Refactoring',
         description:
-          'Managed Docker and Kubernetes deployments for high-availability systems supporting defense operations'
+          'Redesigned network classes to use common interface (75% code reduction) and optimized CMake build procedures'
       },
       {
-        title: 'Testing Infrastructure',
+        title: 'Test Coverage & Quality',
         description:
-          'Built comprehensive testing infrastructure with TDD practices, increasing code coverage to 85%+'
+          'Implemented comprehensive unit testing increasing code coverage by 15% on 80,000+ line codebase'
       },
       {
-        title: 'Security Implementation',
+        title: 'Docker Containerization',
         description:
-          'Implemented RBAC and security controls across cloud infrastructure deployments'
+          'Created Docker containers packaging complete software stack for resource sharing and behavior simulation'
       }
     ]
   },
   {
     id: 'career-4',
     company: 'Georgia Tech Research Institute',
-    title: 'Intern',
+    title: 'Electrical Engineer Co-op',
     years: 1,
-    description: 'Contributed to research initiatives in distributed systems and cloud computing.',
+    description: 'Completed three-rotation co-op gaining embedded software development experience while pursuing Bachelor\'s degree.',
     achievements: [
       {
-        title: 'Research Support',
+        title: 'USB & Sensor Drivers',
         description:
-          'Assisted with research projects in distributed computing and cloud infrastructure optimization'
+          'Developed USB CDC driver and I2C drivers for sensor integration with interrupt and command handling'
       },
       {
-        title: 'Development Contribution',
+        title: 'Physiological Monitoring System',
         description:
-          'Developed tools and utilities in Python to support research data collection and analysis'
+          'Created skin sensing feature tracking Galvanic Skin Responses and temperature via ADC DMA controller'
       },
       {
-        title: 'Infrastructure Setup',
+        title: 'RTOS Development',
         description:
-          'Configured development environments and testing infrastructure for research projects'
+          'Developed software under RTOS conventions utilizing multithreading, semaphores, and mutexes'
       }
     ]
   }
