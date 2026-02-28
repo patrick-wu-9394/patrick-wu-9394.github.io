@@ -1,1 +1,1 @@
-.ai-dev/ai-instructions.md
+../.ai-dev/ai-instructions.md

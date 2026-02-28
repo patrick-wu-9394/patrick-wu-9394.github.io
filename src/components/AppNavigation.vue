@@ -31,7 +31,7 @@ const items = [
   },
   {
     title: 'Skills',
-    url: '#',
+    url: '/skills',
     icon: ToolCase
   },
   {
