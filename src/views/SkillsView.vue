@@ -17,7 +17,7 @@ import { skillCategories } from '@/data/skills'
       </div>
 
       <!-- Skills Grid -->
-      <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+      <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:[&>:last-child:nth-child(odd)]:col-span-full lg:[&>:last-child:nth-child(odd)]:w-1/2 lg:[&>:last-child:nth-child(odd)]:mx-auto">
         <div v-for="category in skillCategories" :key="category.id" class="space-y-3">
           <Card class="h-full border-2">
             <CardHeader class="pb-3">
