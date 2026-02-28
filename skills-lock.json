@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "shadcn-vue": {
+      "source": "noartem/laravel-vue-skills",
+      "sourceType": "github",
+      "computedHash": "e625cdb20ad7e79b78fdf73a213894e0a4a0c4f410e6edebc413101746e04031"
+    }
+  }
+}
